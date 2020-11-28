@@ -70,5 +70,8 @@ public class Test02 {
             }else{
                 System.out.println("FAILED");
             }
+
+        //11. Driver'i kapatin
+        driver.close();
     }
 }
