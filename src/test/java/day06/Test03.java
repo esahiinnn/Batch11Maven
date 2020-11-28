@@ -44,6 +44,7 @@ public class Test03 {
 
         //5. Ilk urunun ismini kaydedin ve bu urunun sayfasina gidin
         WebElement ilkUrun = driver.findElement(By.xpath("(//div[@class='inventory_item_name'])[1]"));
+        String ilkUrunIsmi = ilkUrun.getText();
         ilkUrun.click();
 
         //6. Add to Cart butonuna basin
@@ -53,13 +54,13 @@ public class Test03 {
         driver.findElement(By.xpath("//a[@href='./cart.html']")).click();
 
         //8. Sectiginiz urunun basarili olarak sepete eklendigini control edin
-        WebElement urunTest = driver.findElement(By.xpath("//div[@class='cart_quantity']"));
-            if(urunTest.isDisplayed()){
-                System.out.println("Urun basarili olarak eklenmistir");
-            }else{
-                System.out.println("Urun eklemesi basarisizdir");
-            }
-        Thread.sleep(5000);
+        WebElement urunTest = driver.findElement(By.xpath("//div[@class='inventory_item_name']"));
+           if(urunTest.getText().equals(ilkUrunIsmi)){
+               System.out.println("Urun ekleme testi PASS");
+           }else{
+               System.out.println("Urun ekleme testi FAILED");
+           }
+        Thread.sleep(3000);
 
         //9. Sayfayi kapatin
         driver.close();
