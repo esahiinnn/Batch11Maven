@@ -6,10 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class Test01 {
-    /*
+ /*
         //1-Test01 isimli bir class olusturun
 //2- https://www.walmart.com/ adresine gidin
 //3- Browseri tam sayfa yapin
@@ -21,12 +20,16 @@ public class Test01 {
 //9- Kac sonuc bulundugunu yaziniz
 //10-Sayfayi kapatin
      */
+
+public class Test01 {
+
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
         //2- https://www.walmart.com/ adresine gidin
         driver.get("https://www.walmart.com/");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         //3- Browseri tam sayfa yapin
         driver.manage().window().maximize();
@@ -69,8 +72,8 @@ public class Test01 {
         searchBox.submit();
 
         //9- Kac sonuc bulundugunu yaziniz
-        List<WebElement> urunListesi = driver.findElements(By.xpath("//img[@data-pnodetype='item-pimg']"));
-        System.out.println("Toplam:" + urunListesi.size() + " tane urun listelenmistir");
+        WebElement sonucSayisi = driver.findElement(By.className("result-summary-container"));
+        System.out.println(sonucSayisi.getText());
 
         //10-Sayfayi kapatin
         driver.close();
