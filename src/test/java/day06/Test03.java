@@ -59,6 +59,7 @@ public class Test03 {
                System.out.println("Urun ekleme testi PASS");
            }else{
                System.out.println("Urun ekleme testi FAILED");
+               System.out.println("Sectigim urun ile sepetteki urun ayni degil");
            }
         Thread.sleep(3000);
 
