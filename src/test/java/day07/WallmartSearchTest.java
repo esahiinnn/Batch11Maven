@@ -41,23 +41,28 @@ public class WallmartSearchTest {
     }
 
     @Test
-    public void xd(){
+    public void titleSaveArama(){
+        //5- Sayfa basliginin "Save" ifadesi icerdigini control edin
         String pageTitle = driver.getTitle();
         String arananKelime = "Save";
-        //5- Sayfa basliginin "Save" ifadesi icerdigini control edin
             if(pageTitle.contains(arananKelime)){
                 System.out.println("Page title Save ifadesi iceriyor");
             }else{
                 System.out.println("Page title Save ifadesini icermiyor");
             }
+
+    }
+
+    @Test
+    public void titleEsitMi(){
+        String pageTitle = driver.getTitle();
         //6-Sayfa basliginin "Walmart.com | Save Money.Live Better" a esit oldugunu control ediniz
         String arananBaslik = "Walmart.com | Save Money.Live Better";
-            if(pageTitle.equals(arananBaslik)){
-                System.out.println("Sayfa basligi Testi PASS");
-            }else{
-                System.out.println("Sayfa basligi Testi FAILED");
-            }
-
+        if(pageTitle.equals(arananBaslik)){
+            System.out.println("Sayfa basligi Testi PASS");
+        }else{
+            System.out.println("Sayfa basligi Testi FAILED");
+        }
     }
 
     @Test
