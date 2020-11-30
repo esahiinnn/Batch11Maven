@@ -31,43 +31,53 @@ public class XpathCssTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+        Thread.sleep(3000);
         //a. http://sahibinden.com adresine gidiniz.
         driver.get("https://sahibinden.com");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+        Thread.sleep(3000);
         //b. Arama textboxina macbook pro yazin Xpath ile
         WebElement searchButton = driver.findElement(By.xpath("//input[@id=\"searchText\"]"));
         String arananKelime = "macbook pro";
         searchButton.sendKeys(arananKelime);
         searchButton.submit();
 
+        Thread.sleep(3000);
         WebElement siralama = driver.findElement(By.cssSelector("a[href='#!']"));
         siralama.click();
 
+        Thread.sleep(3000);
         WebElement fiyataGore = driver.findElement(By.xpath("//a[@title='Fiyata göre (Önce en yüksek)']"));
         fiyataGore.click();
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.findElement(By.xpath("(//a[@data-id=\"condition\"])[1]")).click();
 
+        Thread.sleep(3000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,250)", "");
 
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//a[@class='faceted-select']")).click();
 
+        Thread.sleep(3000);
         //Ankara Button
         driver.findElement(By.xpath("(//li[@data-level='city'])[4]")).click();
 
 
+        Thread.sleep(3000);
         //Ekranda bos bir alana tiklama
         driver.findElement(By.xpath("//html")).click();
 
+        Thread.sleep(3000);
         //minTl textBox
         WebElement minTextBox = driver.findElement(By.cssSelector("input[placeholder='min TL']"));
         WebElement maxTextBox = driver.findElement(By.cssSelector("input[placeholder='max TL']"));
         minTextBox.sendKeys("7000");
         maxTextBox.sendKeys("9000");
 
+        Thread.sleep(3000);
         //Ara Button ve urunleri listeleme
         driver.findElement(By.cssSelector("button[class='btn btn-link js-manual-search-button']")).click();
 
