@@ -1,9 +1,7 @@
 package day07;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,10 +23,10 @@ import java.util.concurrent.TimeUnit;
      */
 public class WallmartSearchTest {
 
-    WebDriver driver;
+    static WebDriver driver;
 
-    @Before
-    public void setup(){
+    @BeforeClass
+    public static void setup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -93,8 +91,8 @@ public class WallmartSearchTest {
 
 
 
-    @After
-    public void teardown(){
+    @AfterClass
+    public static void teardown(){
         driver.close();
     }
 
